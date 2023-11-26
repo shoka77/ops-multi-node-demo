@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  ops-manager:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        ntype: manager
+    privileged: true
+  ops-data:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        ntype: data
+    privileged: true
+    depends_on: [ ops-manager ]
+  ops-client:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        ntype: client
+    privileged: true
+    depends_on: [ ops-data ]
