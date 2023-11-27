@@ -18,6 +18,16 @@
  - 起動 
    - `docker-compose up --build --force-recreate`
    - `volume`指定でもいいかもしれませんが、`security-plugin`に関しては[反映にスクリプトの実行を要する](https://opensearch.org/docs/latest/security/configuration/security-admin)ため、再起動の方がラクという判断です。
+ - 設定  
+ 以下はDockerにて`COPY`されます。
+   - `CoodinatingNode`のOpenSearch設定
+     - `./node-client/opensearch.yml`
+   - `ManagerNode`のOpenSearch設定
+     - `./node-manager/opensearch.yml`
+   - `DataNode`のOpenSearch設定
+     - `./node-data/opensearch.yml`
+   - `opensearch-security`の各種設定ファイル
+     - `./opensearch-security`
 
 ## 補足
 
